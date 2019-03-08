@@ -14,7 +14,7 @@ function displayResults(responseJson) {
   // if there are previous results, remove them
   console.log(responseJson);
   $('#results-list').empty();
-  for (let i = 0; i < responseJson.data.length; i++){
+  for (let i = 1; i < responseJson.data.length; i++){
     $('#results-list').append(
       `<h2>${responseJson.data[i].fullName}</h2>
       <li><h3>${responseJson.data[i].description}</h3>
@@ -31,7 +31,7 @@ function displayResults(responseJson) {
 function getParks(query, limit=10) {
   const params = {
     key: apiKey,
-    q: query,
+    stateCode: query.split(','),
     fields: ['addresses'],
     limit
   };
