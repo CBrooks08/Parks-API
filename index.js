@@ -31,7 +31,7 @@ function displayResults(responseJson) {
 function getParks(query, limit=10) {
   const params = {
     key: apiKey,
-    q: query,
+    stateCode: query.split(','),
     fields: ['addresses'],
     limit
   };
